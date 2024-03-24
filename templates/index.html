@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tube Data</title>
+    <style>
+      @font-face {
+        font-family: FanfareTicker;
+        src: url(/static/fonts/fanfare-ticker-font/FanfareTicker-aXBx.ttf);
+      }
+
+      @font-face {
+        font-family: Tamagotchi;
+        src: url(/static/fonts/tamagotchi-font/TamagotchiNormal-6YWD.ttf);
+      }
+
+      @font-face {
+        font-family: urlybird;
+        src: url(/static/fonts/urlybird-font/Urlybird-1Gxg.ttf);
+      }
+
+      @font-face {
+        font-family: futura;
+        src: url(/static/fonts/futura/futur.ttf);
+      }
+
+      * {
+        padding: 0;
+        margin: 0;
+        /* position: absolute; */
+      }
+
+      canvas {
+        background-color: #3a2417;
+        background-color: #34201b;
+        background-color: #111;
+        /* width: 100vw; */
+        /* height: 100vh; */
+      }
+
+      .list-item {
+        box-sizing: border-box;
+
+        display: flex;
+        font-family: futura;
+        /* font-weight: bolder; */
+        letter-spacing: 0.2vw;
+        text-transform: uppercase;
+        font-size: max(1.4vw, 1.4vh);
+
+        background-color: rgba(0, 0, 0, 0.5);
+        /* padding: 25px; */
+        /* margin: 0.5em; */
+
+        justify-content: center;
+        align-items: center;
+        /* width: calc(30vw + 25px); */
+        /* height: calc(2vh + 25px); */
+        /* border-radius: 0.5em; */
+
+        color: white;
+      }
+
+      .row {
+        position: relative;
+        /* box-sizing: border-box; */
+        display: grid;
+        column-gap: 20px;
+        grid-template-columns: 1fr 1fr;
+        background-color: #e0cfab;
+        width: calc(100vw - 40px);
+        /* width: 100%; */
+        height: auto;
+        /* height: 100vh; */
+        /* column-gap: min(2vh, 2vw); */
+      }
+
+      /* SERVICE COLOURS */
+      .GS {
+        background-color: #008450;
+        border-color: #008450;
+      }
+      .MD {
+        background-color: #efb700;
+        border-color: #efb700;
+      }
+      .PC {
+        background-color: #efb700;
+        border-color: #efb700;
+      }
+      .CS {
+        background-color: #b81d13;
+        border-color: #b81d13;
+      }
+      .SD {
+        background-color: #b81d13;
+        border-color: #b81d13;
+      }
+
+      /* LINE BORDER */
+      .line-border {
+        /* border-color: white; */
+        border-style: solid;
+        /* border-bottom: solid white; */
+        /* border-top: solid white; */
+      }
+
+      /* LINE COLOURS */
+      .bake {
+        background-color: #b36305;
+        border-color: #b36305;
+        border-style: solid;
+      }
+
+      .cent {
+        background-color: #e32017;
+        border-color: #e32017;
+        border-style: solid;
+      }
+
+      .circ {
+        background-color: #ffd300;
+        border-color: #ffd300;
+        border-style: solid;
+      }
+
+      .dist {
+        background-color: #00782a;
+        border-color: #00782a;
+        border-style: solid;
+      }
+
+      .eliz {
+        background-color: #6950a1;
+        border-color: #6950a1;
+        border-style: solid;
+      }
+
+      .hammer {
+        background-color: #f3a9bb;
+        border-color: #f3a9bb;
+        border-style: solid;
+      }
+
+      .jub {
+        background-color: #a0a5a9;
+        border-color: #a0a5a9;
+        border-style: solid;
+      }
+
+      .metro {
+        background-color: #9b0056;
+        border-color: #9b0056;
+        border-style: solid;
+      }
+
+      .north {
+        background-color: #000000;
+        border-color: #000000;
+        border-style: solid;
+      }
+
+      .picc {
+        background-color: #003688;
+        border-color: #003688;
+        border-style: solid;
+      }
+
+      .vic {
+        background-color: #0098d4;
+        border-color: #0098d4;
+        border-style: solid;
+      }
+
+      .water {
+        background-color: #95cdba;
+        border-color: #95cdba;
+        border-style: solid;
+      }
+
+      .dlr {
+        background-color: #00a4a7;
+        border-color: #00a4a7;
+        border-style: solid;
+      }
+
+      .over {
+        background-color: #ee7c0e;
+        border-color: #ee7c0e;
+        border-style: solid;
+      }
+
+      .trams {
+        background-color: #84b817;
+        border-color: #84b817;
+        border-style: solid;
+      }
+
+      #data-container {
+        /* position: absolute; */
+        /* padding: 0; */
+        margin: 20px;
+        /* box-sizing: border-box; */
+        display: grid;
+        /* flex-direction: row; */
+        /* flex-wrap: wrap; */
+        justify-content: space-between;
+        height: 100%;
+        width: 100%;
+      }
+
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-sizing: border-box;
+        height: 100vh;
+        width: 100vw;
+        padding: 20px;
+        background-color: #e0cfab;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      async function fetchData() {
+        const response = await fetch("/data");
+        const data = await response.json();
+        return data;
+      }
+
+      async function displayData() {
+        let data = await fetchData();
+        data = data["data"];
+
+        const data_container = document.getElementById("data-container");
+
+        if (data_container) {
+          while (data_container.firstChild) {
+            data_container.removeChild(data_container.firstChild);
+          }
+        }
+
+        for (let line = 0; line < data.length; line++) {
+          let line_data = data[line];
+
+          let name = document.createElement("div");
+          let status = document.createElement("div");
+          let row = document.createElement("div");
+
+          row.classList.add("row");
+          name.classList.add("list-item");
+          status.classList.add("list-item");
+
+          name.classList.add(line_data["line_id"]);
+          status.classList.add(line_data["line_status"]);
+          status.classList.add("line-border");
+
+          name.innerHTML = line_data["line_name"];
+          status.innerHTML = line_data["line_status_description"];
+
+          row.appendChild(name);
+          row.appendChild(status);
+          data_container.appendChild(row);
+        }
+      }
+
+      displayData();
+      setInterval(displayData, 1000 * 60); // run every minute
+    </script>
+    <div id="data-container"></div>
+  </body>
+</html>

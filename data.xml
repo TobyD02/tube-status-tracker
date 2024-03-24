@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfLineStatus xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://webservices.lul.co.uk/">
+  <LineStatus ID="0" StatusDetails="">
+    <BranchDisruptions />
+    <Line ID="1" Name="Bakerloo" />
+    <Status ID="GS" CssClass="GoodService" Description="Good Service" IsActive="true">
+      <StatusType ID="1" Description="Line" />
+    </Status>
+  </LineStatus>
+  <LineStatus ID="1" StatusDetails="No service between Woodford and Epping due to planned engineering work. GOOD SERVICE on the rest of the line.">
+    <BranchDisruptions>
+      <BranchDisruption>
+        <StationTo ID="75" Name="Epping" />
+        <StationFrom ID="273" Name="Woodford" />
+        <Status ID="PC" CssClass="DisruptedService" Description="Part Closure" IsActive="true">
+          <StatusType ID="1" Description="Line" />
+        </Status>
+      </BranchDisruption>
+    </BranchDisruptions>
+    <Line ID="2" Name="Central" />
+    <Status ID="PC" CssClass="DisruptedService" Description="Part Closure" IsActive="true">
+      <StatusType ID="1" Description="Line" />
+    </Status>
+  </LineStatus>
+  <LineStatus ID="10" StatusDetails="">
+    <BranchDisruptions />
+    <Line ID="7" Name="Circle" />
+    <Status ID="GS" CssClass="GoodService" Description="Good Service" IsActive="true">
+      <StatusType ID="1" Description="Line" />
+    </Status>
+  </LineStatus>
+  <LineStatus ID="2" StatusDetails="">
+    <BranchDisruptions />
+    <Line ID="9" Name="District" />
+    <Status ID="GS" CssClass="GoodService" Description="Good Service" IsActive="true">
+      <StatusType ID="1" Description="Line" />
+    </Status>
+  </LineStatus>
+  <LineStatus ID="8" StatusDetails="">
+    <BranchDisruptions />
+    <Line ID="8" Name="Hammersmith and City" />
+    <Status ID="GS" CssClass="GoodService" Description="Good Service" IsActive="true">
+      <StatusType ID="1" Description="Line" />
+    </Status>
+  </LineStatus>
+  <LineStatus ID="4" StatusDetails="">
+    <BranchDisruptions />
+    <Line ID="4" Name="Jubilee" />
+    <Status ID="GS" CssClass="GoodService" Description="Good Service" IsActive="true">
+      <StatusType ID="1" Description="Line" />
+    </Status>
+  </LineStatus>
+  <LineStatus ID="9" StatusDetails="Minor delays between Moor Park and Amersham due to train cancellations. After the 19:22 departure from Amersham, the next southbound train will be at 20:22. GOOD SERVICE on the rest of the line.">
+    <BranchDisruptions>
+      <BranchDisruption>
+        <StationTo ID="5" Name="Amersham" />
+        <StationFrom ID="149" Name="Moor Park" />
+        <Status ID="MD" CssClass="GoodService" Description="Minor Delays" IsActive="true">
+          <StatusType ID="1" Description="Line" />
+        </Status>
+      </BranchDisruption>
+    </BranchDisruptions>
+    <Line ID="11" Name="Metropolitan" />
+    <Status ID="MD" CssClass="GoodService" Description="Minor Delays" IsActive="true">
+      <StatusType ID="1" Description="Line" />
+    </Status>
+  </LineStatus>
+  <LineStatus ID="5" StatusDetails="">
+    <BranchDisruptions />
+    <Line ID="5" Name="Northern" />
+    <Status ID="GS" CssClass="GoodService" Description="Good Service" IsActive="true">
+      <StatusType ID="1" Description="Line" />
+    </Status>
+  </LineStatus>
+  <LineStatus ID="6" StatusDetails="">
+    <BranchDisruptions />
+    <Line ID="6" Name="Piccadilly" />
+    <Status ID="GS" CssClass="GoodService" Description="Good Service" IsActive="true">
+      <StatusType ID="1" Description="Line" />
+    </Status>
+  </LineStatus>
+  <LineStatus ID="7" StatusDetails="Minor delays due to an earlier customer incident at Green Park.">
+    <BranchDisruptions />
+    <Line ID="3" Name="Victoria" />
+    <Status ID="MD" CssClass="GoodService" Description="Minor Delays" IsActive="true">
+      <StatusType ID="1" Description="Line" />
+    </Status>
+  </LineStatus>
+  <LineStatus ID="11" StatusDetails="Service will resume at 06:00 on Monday.">
+    <BranchDisruptions />
+    <Line ID="12" Name="Waterloo and City" />
+    <Status ID="CS" CssClass="DisruptedService" Description="Planned Closure" IsActive="true">
+      <StatusType ID="1" Description="Line" />
+    </Status>
+  </LineStatus>
+  <LineStatus ID="82" StatusDetails="No service between Liverpool Street and Enfield Town / Cheshunt / Chingford and between Wandsworth Road and Clapham Junction due to planned engineering work.&#xA;MINOR DELAYS between Richmond and Stratford due to an earlier fire alert at Stratford.&#xA;GOOD SERVICE on other London Overground routes.">
+    <BranchDisruptions>
+      <BranchDisruption>
+        <StationTo ID="302" Name="Clapham Junction" />
+        <StationFrom ID="376" Name="Wandsworth Road" />
+        <Status ID="PC" CssClass="DisruptedService" Description="Part Closure" IsActive="true">
+          <StatusType ID="1" Description="Line" />
+        </Status>
+      </BranchDisruption>
+      <BranchDisruption>
+        <StationTo ID="384" Name="Enfield Town" />
+        <StationFrom ID="138" Name="Liverpool Street" />
+        <Status ID="PC" CssClass="DisruptedService" Description="Part Closure" IsActive="true">
+          <StatusType ID="1" Description="Line" />
+        </Status>
+      </BranchDisruption>
+      <BranchDisruption>
+        <StationTo ID="380" Name="Cheshunt" />
+        <StationFrom ID="138" Name="Liverpool Street" />
+        <Status ID="PC" CssClass="DisruptedService" Description="Part Closure" IsActive="true">
+          <StatusType ID="1" Description="Line" />
+        </Status>
+      </BranchDisruption>
+      <BranchDisruption>
+        <StationTo ID="381" Name="Chingford" />
+        <StationFrom ID="138" Name="Liverpool Street" />
+        <Status ID="PC" CssClass="DisruptedService" Description="Part Closure" IsActive="true">
+          <StatusType ID="1" Description="Line" />
+        </Status>
+      </BranchDisruption>
+    </BranchDisruptions>
+    <Line ID="82" Name="Overground" />
+    <Status ID="PC" CssClass="DisruptedService" Description="Part Closure" IsActive="true">
+      <StatusType ID="1" Description="Line" />
+    </Status>
+  </LineStatus>
+  <LineStatus ID="83" StatusDetails="">
+    <BranchDisruptions />
+    <Line ID="83" Name="Elizabeth Line" />
+    <Status ID="GS" CssClass="GoodService" Description="Good Service" IsActive="true">
+      <StatusType ID="1" Description="Line" />
+    </Status>
+  </LineStatus>
+  <LineStatus ID="81" StatusDetails="No service between Poplar and Beckton and between Stratford International and Woolwich Arsenal due to planned engineering work. GOOD SERVICE on all other routes.">
+    <BranchDisruptions>
+      <BranchDisruption>
+        <StationTo ID="290" Name="Beckton" />
+        <StationFrom ID="347" Name="Poplar" />
+        <Status ID="PC" CssClass="DisruptedService" Description="Part Closure" IsActive="true">
+          <StatusType ID="1" Description="Line" />
+        </Status>
+      </BranchDisruption>
+      <BranchDisruption>
+        <StationTo ID="371" Name="Woolwich Arsenal" />
+        <StationFrom ID="358" Name="Stratford International" />
+        <Status ID="PC" CssClass="DisruptedService" Description="Part Closure" IsActive="true">
+          <StatusType ID="1" Description="Line" />
+        </Status>
+      </BranchDisruption>
+    </BranchDisruptions>
+    <Line ID="81" Name="DLR" />
+    <Status ID="PC" CssClass="DisruptedService" Description="Part Closure" IsActive="true">
+      <StatusType ID="1" Description="Line" />
+    </Status>
+  </LineStatus>
+  <LineStatus ID="90" StatusDetails="No service between Sandilands and New Addington due to planned engineering work. GOOD SERVICE on other tram routes.">
+    <BranchDisruptions>
+      <BranchDisruption>
+        <StationTo ID="455" Name="New Addington" />
+        <StationFrom ID="449" Name="Sandilands" />
+        <Status ID="PC" CssClass="DisruptedService" Description="Part Closure" IsActive="true">
+          <StatusType ID="1" Description="Line" />
+        </Status>
+      </BranchDisruption>
+    </BranchDisruptions>
+    <Line ID="90" Name="Trams" />
+    <Status ID="PC" CssClass="DisruptedService" Description="Part Closure" IsActive="true">
+      <StatusType ID="1" Description="Line" />
+    </Status>
+  </LineStatus>
+</ArrayOfLineStatus>
