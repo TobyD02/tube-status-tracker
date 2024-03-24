@@ -39,12 +39,59 @@
         /* height: 100vh; */
       }
 
+      .header {
+        position: relative;
+        display: grid;
+        column-gap: 10px;
+        grid-template-columns: 1fr 1fr;
+        width: calc(100vw - 20px);
+        height: auto;
+
+        box-sizing: border-box;
+
+        background-color: #044a44;
+        display: flex;
+        padding-bottom: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+
+      .header-content {
+        /* Account for padding */
+        top: 5px;
+        position: relative;
+        height: 100%;
+        display: flex;
+        align-items: center;
+
+        justify-content: space-around;
+        text-align: center;
+
+        display: flex;
+        font-family: futura;
+        letter-spacing: 0.2vw;
+        text-transform: uppercase;
+        font-size: max(1.4vw, 1.4vh);
+        color: white;
+      }
+
+      .header-content:first-child {
+        justify-content: left;
+      }
+      
+      .header-content:last-child {
+        justify-content: right;
+      }
+      
       .list-item {
         box-sizing: border-box;
 
         display: flex;
         font-family: futura;
-        /* font-weight: bolder; */
         letter-spacing: 0.2vw;
         text-transform: uppercase;
         font-size: max(1.4vw, 1.4vh);
@@ -66,14 +113,10 @@
         position: relative;
         /* box-sizing: border-box; */
         display: grid;
-        column-gap: 20px;
+        column-gap: 10px;
         grid-template-columns: 1fr 1fr;
-        background-color: #e0cfab;
-        width: calc(100vw - 40px);
-        /* width: 100%; */
+        width: calc(100vw - 20px);
         height: auto;
-        /* height: 100vh; */
-        /* column-gap: min(2vh, 2vw); */
       }
 
       /* SERVICE COLOURS */
@@ -200,7 +243,7 @@
       #data-container {
         /* position: absolute; */
         /* padding: 0; */
-        margin: 20px;
+        margin: 10px;
         /* box-sizing: border-box; */
         display: grid;
         /* flex-direction: row; */
@@ -217,13 +260,46 @@
         box-sizing: border-box;
         height: 100vh;
         width: 100vw;
-        padding: 20px;
+        padding: 10px;
         background-color: #e0cfab;
       }
     </style>
   </head>
   <body>
     <script>
+      function getCurrentDate() {
+        const months = [
+          "Jan",
+          "Feb",
+          "Mar",
+          "Apr",
+          "May",
+          "Jun",
+          "Jul",
+          "Aug",
+          "Sep",
+          "Oct",
+          "Nov",
+          "Dec",
+        ];
+        const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+        const now = new Date();
+        const dayOfWeek = days[now.getDay()];
+        const dayOfMonth = now.getDate();
+        const month = months[now.getMonth()];
+
+        return `${dayOfWeek} ${dayOfMonth} ${month}`;
+      }
+
+      function getCurrentTime() {
+        const now = new Date();
+        const hours = now.getHours().toString().padStart(2, "0"); // Pad with leading zero if needed
+        const minutes = now.getMinutes().toString().padStart(2, "0"); // Pad with leading zero if needed
+
+        return `${hours}:${minutes}`;
+      }
+
       async function fetchData() {
         const response = await fetch("/data");
         const data = await response.json();
@@ -241,6 +317,26 @@
             data_container.removeChild(data_container.firstChild);
           }
         }
+
+        // Create header
+        let header = document.createElement("div");
+        let date = document.createElement("div");
+        let title = document.createElement("div");
+        let time = document.createElement("div");
+
+        header.classList.add("header");
+        date.classList.add("header-content");
+        title.classList.add("header-content");
+        time.classList.add("header-content");
+
+        date.innerHTML = getCurrentDate();
+        title.innerHTML = "TFL STATUS UPDATES";
+        time.innerHTML = getCurrentTime();
+
+        header.appendChild(date);
+        header.appendChild(title);
+        header.appendChild(time);
+        data_container.appendChild(header);
 
         for (let line = 0; line < data.length; line++) {
           let line_data = data[line];
