@@ -52,10 +52,10 @@
         background-color: #044a44;
         display: flex;
         padding-bottom: 10px;
-        padding-left: 10px;
-        padding-right: 10px;
-        margin-right: 10px;
-        margin-bottom: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
+        margin-right: 20px;
+        margin-bottom: 20px;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
       }
@@ -82,11 +82,11 @@
       .header-content:first-child {
         justify-content: left;
       }
-      
+
       .header-content:last-child {
         justify-content: right;
       }
-      
+
       .list-item {
         box-sizing: border-box;
 
@@ -296,8 +296,9 @@
         const now = new Date();
         const hours = now.getHours().toString().padStart(2, "0"); // Pad with leading zero if needed
         const minutes = now.getMinutes().toString().padStart(2, "0"); // Pad with leading zero if needed
+        const seconds = now.getSeconds().toString().padStart(2, "0");
 
-        return `${hours}:${minutes}`;
+        return `${hours}:${minutes}:${seconds}`;
       }
 
       async function fetchData() {
@@ -328,6 +329,7 @@
         date.classList.add("header-content");
         title.classList.add("header-content");
         time.classList.add("header-content");
+        time.id = "time";
 
         date.innerHTML = getCurrentDate();
         title.innerHTML = "TFL STATUS UPDATES";
@@ -362,8 +364,16 @@
         }
       }
 
+      function updateTime() {
+        let time = document.getElementById("time");
+        if (time) {
+          time.innerHTML = getCurrentTime();
+        }
+      }
+
       displayData();
       setInterval(displayData, 1000 * 60); // run every minute
+      setInterval(updateTime, 1000)
     </script>
     <div id="data-container"></div>
   </body>
