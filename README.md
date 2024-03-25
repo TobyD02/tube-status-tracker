@@ -6,8 +6,8 @@
 
 A simple webpage that displays current tube status data in minimalist format. Hosted using a python flask application.
 
-URL: [Tube Status Tracker](https://tube-status-tracker.onrender.com/)<br>
-API Endpoint: [API](https://tube-status-tracker.onrender.com/data)
+URL: [Tube Status Tracker](https://tflstatus.onrender.com/)<br>
+API Endpoint: [API](https://tflstatus.onrender.com/data)
 
 ## Table of Contents
 
