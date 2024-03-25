@@ -134,7 +134,28 @@
         background-color: #efb700;
         border-color: #efb700;
       }
-      .CS { /* Closed  */
+
+      .PS { /* Part Suspended */
+        background-color: #efb700;
+        border-color: #efb700;
+      }
+
+      .RS { /* Reduced Service */
+        background-color: #efb700;
+        border-color: #efb700;
+      }
+
+      .BS { /* Bus Service */
+        background-color: #efb700;
+        border-color: #efb700;
+      }
+
+      .SS { /* Suspended Service  */
+        background-color: #b81d13;
+        border-color: #b81d13;
+      }
+
+      .CS { /* Part Closure  */
         background-color: #b81d13;
         border-color: #b81d13;
       }
@@ -348,6 +369,7 @@
 
         for (let line = 0; line < data.length; line++) {
           let line_data = data[line];
+          console.log(line_data)
 
           let name = document.createElement("div");
           let status = document.createElement("div");
