@@ -6,8 +6,8 @@
 
 A simple webpage that displays current tube status data in minimalist format. Hosted using a python flask application.
 
-URL: [Tube Status Tracker](https://tube-status-tracker.onrender.com/)
-
+URL: [Tube Status Tracker](https://tube-status-tracker.onrender.com/)<br>
+API Endpoint: [API](https://tube-status-tracker.onrender.com/data)
 
 ## Table of Contents
 
@@ -56,8 +56,11 @@ URL: [Tube Status Tracker](https://tube-status-tracker.onrender.com/)
 1. **Run the Python script:**
 
    ```sh
-   python scraper.py
+   gunicorn main:app
    ```
+
+2. **Webpage will be hosted on [localhost:8000](https://localhost:8000). API endpoint can be visited at [localhost:8000/data](https://localhost:8000/data)**
+
 
 ## License
 
