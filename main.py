@@ -4,7 +4,8 @@ from flask import Flask, render_template
 
 # Which lines to filter out of results 
 # Assign ids from id_map
-filter_out = ['trams', 'water', 'dlr']
+# filter_out = ['trams', 'water', 'dlr']
+filter_out = []
 
 def get_distruptions(BranchDisruptions, namespace):
 
@@ -23,14 +24,6 @@ def get_distruptions(BranchDisruptions, namespace):
         disruptions.append(disruption)
 
     return disruptions
-
-    table = PrettyTable()
-    table.field_names = ['line_name', 'line_status',
-                         'line_is_active', 'line_disruptions']
-    for i in data:
-        table.add_row([i['line_name'], i['line_status'],
-                      i['line_is_active'], len(i['line_disruptions'])])
-    print(table)
 
 
 async def get_data():
@@ -101,9 +94,9 @@ async def home():
 @app.route('/data')
 async def gather_data():
     data = await get_data()
-    print(len(data['data']))
     return data
 
 
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8080, debug=True)
+# Not needed for gunicorn
+# if __name__ == '__main__':
+#     app.run(host='0.0.0.0', port=8080, debug=True)
